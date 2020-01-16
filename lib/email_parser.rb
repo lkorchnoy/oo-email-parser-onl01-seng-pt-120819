@@ -1,16 +1,13 @@
 class EmailAddressParser
   
-  attr_accessor :email
+  attr_accessor :emails
   
-  def initialize(email)
-    @email = email
+  def initialize(emails)
+    @emails = emails
   end
   
-  def parse_from_csv(csv_data)
-    rows = csv_data.split("\n")
-    email = rows.collect do |row|
-    data = row.to_a
-    email.unique
+  def parse
+    emails.split(/, | /).uniq
   end
   
 end
